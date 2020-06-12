@@ -1,0 +1,36 @@
+* Epics
+** Test Driven Development
+:PROPERTIES:
+:CUSTOM_ID: tdd
+:END:
+*** TODO Adapt, if need be, current architecture to current goals
+**** TODO Define units based on the future goal
+**** TODO Refactor the program so as to follow these units
+*** TODO Write tests for current program
+** Better predict the length of a session based previous sessions
+Period length wax and wane over a session. Assuming that these length
+change in a similar pattern for every session, use that
+information to better predict the length of a session.
+*** Dependency: [[#tdd]]
+*** TODO Record all length for a session in a file
+:PROPERTIES:
+:CUSTOM_ID: record_length
+:END:
+
+*** TODO When making prediction for the length in a session, use data from the three previous sessions
+** Make it possible to check the assumption that period length wax and wane in similar patterns over several sessions
+It should be easy to plot the data of previous session.
+*** Dependency: [[#record_length]]
+*** TODO Add an option to easily export length of periods for all recorded sessions
+Side effect of this choice: it also allow all kind of analysis, for instance of when attention usually drops
+** Make it possible to change the predicted number of period during a session
+It is possible that the length of the session is variable. It is also
+possible to want to do more of a repetitive activity in the middle of
+a session. Finally, it is possible to be wrong when entering the
+number of predicted session
+
+Changing the predicted number of period in a session without ending it should be possible.
+*** Dependency: [[#record_length]]
+*** TODO Make the begining of a session a different command than the command to record period in a session.
+*** TODO At the start of a recording, if 10 times the 75th percentile of the last 10% of periods has passed since the last recording for that session, show a warning that the user might need to start a new session
+** Make that project somehow useful to other
