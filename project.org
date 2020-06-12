@@ -5,6 +5,13 @@
 :END:
 *** TODO Adapt, if need be, current architecture to current goals
 **** TODO Define units based on the future goal
+So that would be something like:
+- Period recorder: record new periods in the current session
+- Estimator: show estimates based on previous period length, and on the estimated number of period in this session
+- Sessions exporter: Export all periods in all sessions of an activity
+- Session starter: ends the current session and starts another one
+- Activity reader: reads and make available all data from an activity file
+- Activity writer: saves all of an activity's data in a file _after a change_
 **** TODO Refactor the program so as to follow these units
 *** TODO Write tests for current program
 ** Better predict the length of a session based previous sessions
@@ -16,7 +23,7 @@ information to better predict the length of a session.
 :PROPERTIES:
 :CUSTOM_ID: record_length
 :END:
-
+**** TODO always make a backup of the activity file before writing it
 *** TODO When making prediction for the length in a session, use data from the three previous sessions
 ** Make it possible to check the assumption that period length wax and wane in similar patterns over several sessions
 It should be easy to plot the data of previous session.
@@ -33,4 +40,9 @@ Changing the predicted number of period in a session without ending it should be
 *** Dependency: [[#record_length]]
 *** TODO Make the begining of a session a different command than the command to record period in a session.
 *** TODO At the start of a recording, if 10 times the 75th percentile of the last 10% of periods has passed since the last recording for that session, show a warning that the user might need to start a new session
-** Make that project somehow useful to other
+** TODO Make that project somehow useful to other
+*** TODO Figure out what that might be ...
+*** TODO ...
+*** TODO ...
+*** TODO ...
+*** TODO Write a README.md
